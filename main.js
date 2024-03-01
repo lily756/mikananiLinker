@@ -69,8 +69,10 @@ function main() {
       // console.log(files)
       for (let index = 0; index < files.length; index++) {
         const file = files[index];
-        const nofansubfilename = removeFansub(file);
-        console.log(nofansubfilename);
+        if(!file.startsWith('._')){
+            const nofansubfilename = removeFansub(file);
+            console.log(nofansubfilename);
+        }
       }
     } else {
       console.log("check src and dst directory is a directory");
