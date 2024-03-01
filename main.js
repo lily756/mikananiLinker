@@ -71,6 +71,9 @@ function main() {
       // console.log(files)
       for (let index = 0; index < files.length; index++) {
         const file = files[index];
+        if(file.startsWith("._") || file.endsWith('!qb')){
+            return
+        }
         if (!file.startsWith("._") || !file.endsWith('!qb')) {
           const nofansubfilename = removeFansub(file);
           const { name, extra } = getBanguName(nofansubfilename);
