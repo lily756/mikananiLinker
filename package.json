@@ -1,0 +1,22 @@
+{
+  "name": "mikananilinker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lily756/mikananiLinker.git"
+  },
+  "author": "issen rin",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/lily756/mikananiLinker/issues"
+  },
+  "homepage": "https://github.com/lily756/mikananiLinker#readme",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
