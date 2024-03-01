@@ -42,8 +42,8 @@ function getBanguName(name) {
 }
 
 function getEpisode(name) {
-  const pattern1 = /\s-\s[0-9]*?(v[0-9])*\s/g;
-  const pattern2 = /\[[0-9]*?(v[0-9])*\]/g;
+  const pattern1 = /\s-\s[0-9]*?(.5)*(v[0-9])*\s/g;
+  const pattern2 = /\[[0-9]*?(.5)*(v[0-9])*\]/g;
   if (pattern1.test(name)) {
     const ep = name.match(pattern1);
     return ep[0].replace(/\s-\s|v[0-9]*/g, "").trim();
