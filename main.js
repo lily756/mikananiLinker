@@ -93,7 +93,12 @@ function main() {
                 fs.statSync(path.join(dst, sify(name),`${ep}${fileExtra}`));
             }
           } catch (error) {
-            console.log(3)
+            if(argv.zht){
+                fs.linkSync(path.join(src,file),path.join(dst,tify(name),`${ep}${fileExtra}`))
+            }else{
+                fs.linkSync(path.join(src,file),path.join(dst,sity(name),`${ep}${fileExtra}`))
+            }
+            
           }
 
         }
