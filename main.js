@@ -1,10 +1,11 @@
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
 const argv = yargs(hideBin(process.argv)).parse();
-const fs = require('node:fs');
+const fs = require("node:fs");
 const path = require("node:path");
 
 function removeFansub(name) {
+  name = name.trim()
   const pattern = /(\[|【).*?(\]|】)/g;
   const report = name.match(pattern);
   if (Array.isArray(report)) {
@@ -60,19 +61,19 @@ function echoHelp() {}
 
 function main() {
   if (argv.src && argv.dst) {
-    const src = path.normalize(String(argv.src))
-    const dst = path.normalize(String(argv.dst))
+    const src = path.normalize(String(argv.src));
+    const dst = path.normalize(String(argv.dst));
     // console.log(src,dst)
-    if(fs.statSync(src).isDirectory() && fs.statSync(dst).isDirectory()){
-        const files = fs.readdirSync(src,{encoding:'utf8'})
-        // console.log(files)
-        for (let index = 0; index < files.length; index++) {
-            const file = files[index];
-            const nofansubfilename = removeFansub(file)
-            console.log(nofansubfilename)
-        }
-    }else{
-        console.log('check src and dst directory is a directory')
+    if (fs.statSync(src).isDirectory() && fs.statSync(dst).isDirectory()) {
+      const files = fs.readdirSync(src, { encoding: "utf8" });
+      // console.log(files)
+      for (let index = 0; index < files.length; index++) {
+        const file = files[index];
+        const nofansubfilename = removeFansub(file);
+        console.log(nofansubfilename);
+      }
+    } else {
+      console.log("check src and dst directory is a directory");
     }
   } else {
     echoHelp();
