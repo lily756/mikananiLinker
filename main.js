@@ -75,12 +75,17 @@ function main() {
           const { name, extra } = getBanguName(nofansubfilename);
           const ep = getEpisode(extra);
           const fileExtra = getfileExtra(file);
+          let newBangu = false;
           try {
-            fs.statSync(path.join(dst, tify(name))).isDirectory();
-            fs.statSync(path.join(dst, sity(name))).isDirectory();
+            if(argv.zht){
+                fs.statSync(path.join(dst, tify(name))).isDirectory();
+            }else{
+                fs.statSync(path.join(dst, sify(name))).isDirectory();
+            }
           } catch (error) {
-            fs.mkdirSync(path.join(dst, name));
+            fs.mkdirSync(path.join(dst, sify(name)))
           }
+
         }
       }
     } else {
