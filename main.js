@@ -65,7 +65,12 @@ function main() {
     // console.log(src,dst)
     if(fs.statSync(src).isDirectory() && fs.statSync(dst).isDirectory()){
         const files = fs.readdirSync(src,{encoding:'utf8'})
-        console.log(files)
+        // console.log(files)
+        for (let index = 0; index < files.length; index++) {
+            const file = files[index];
+            const nofansubfilename = removeFansub(file)
+            console.log(nofansubfilename)
+        }
     }else{
         console.log('check src and dst directory is a directory')
     }
