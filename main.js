@@ -86,6 +86,16 @@ function main() {
             fs.mkdirSync(path.join(dst, sify(name)))
           }
 
+          try {
+            if(argv.zht){
+                fs.statSync(path.join(dst, tify(name),`${ep}${fileExtra}`));
+            }else{
+                fs.statSync(path.join(dst, sify(name),`${ep}${fileExtra}`));
+            }
+          } catch (error) {
+            console.log(3)
+          }
+
         }
       }
     } else {
