@@ -96,7 +96,7 @@ function main() {
             if(argv.zht){
                 fs.linkSync(path.join(src,file),path.join(dst,tify(name),`${ep}${fileExtra}`))
             }else{
-                fs.linkSync(path.join(src,file),path.join(dst,sity(name),`${ep}${fileExtra}`))
+                fs.linkSync(path.join(src,file),path.join(dst,sify(name),`${ep}${fileExtra}`))
             }
             
           }
