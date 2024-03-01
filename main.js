@@ -62,7 +62,13 @@ function main() {
   if (argv.src && argv.dst) {
     const src = path.normalize(String(argv.src))
     const dst = path.normalize(String(argv.dst))
-    console.log(src,dst)
+    // console.log(src,dst)
+    if(fs.statSync(src).isDirectory() && fs.statSync(dst).isDirectory()){
+        const files = fs.readdirSync(src,{encoding:'utf8'})
+        console.log(files)
+    }else{
+        console.log('check src and dst directory is a directory')
+    }
   } else {
     echoHelp();
   }
