@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lily756/mikananiLinker#readme",
   "dependencies": {
+    "chinese-conv": "^1.1.0",
     "jest": "^29.7.0",
     "yargs": "^17.7.2"
   }

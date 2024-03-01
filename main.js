@@ -3,9 +3,10 @@ const { hideBin } = require("yargs/helpers");
 const argv = yargs(hideBin(process.argv)).parse();
 const fs = require("node:fs");
 const path = require("node:path");
+const { tify, sify } = require("chinese-conv");
 
 function removeFansub(name) {
-  name = name.trim()
+  name = name.trim();
   const pattern = /(\[|【).*?(\]|】)/g;
   const report = name.match(pattern);
   if (Array.isArray(report)) {
@@ -69,9 +70,17 @@ function main() {
       // console.log(files)
       for (let index = 0; index < files.length; index++) {
         const file = files[index];
-        if(!file.startsWith('._')){
-            const nofansubfilename = removeFansub(file);
-            console.log(nofansubfilename);
+        if (!file.startsWith("._")) {
+          const nofansubfilename = removeFansub(file);
+          const { name, extra } = getBanguName(nofansubfilename);
+          const ep = getEpisode(extra);
+          const fileExtra = getfileExtra(file);
+          try {
+            fs.statSync(path.join(dst, tify(name))).isDirectory();
+            fs.statSync(path.join(dst, sity(name))).isDirectory();
+          } catch (error) {
+            fs.mkdirSync(path.join(dst, name));
+          }
         }
       }
     } else {
