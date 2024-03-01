@@ -38,6 +38,7 @@ function getBanguName(name) {
     const index = name.indexOf("]");
     return { name: name.slice(1, index), extra: name.slice(index + 1) };
   } else {
+    console.error(name)
   }
 }
 
