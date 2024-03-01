@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "jest"
   },
   "repository": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/lily756/mikananiLinker#readme",
   "dependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "yargs": "^17.7.2"
   }
 }
